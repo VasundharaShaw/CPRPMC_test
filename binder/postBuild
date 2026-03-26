@@ -1,0 +1,3 @@
+#!/bin/bash
+chmod +x scripts/main.sh
+chmod +x lib/*.sh
