@@ -1,0 +1,16 @@
+GitPython>=3.1
+ipykernel
+ipywidgets
+jupyter
+jupyterlab
+matplotlib
+nbclient
+nbconvert
+nbdime
+nbformat
+numpy
+pandas
+requests
+scipy
+seaborn
+ 
