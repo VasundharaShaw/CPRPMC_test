@@ -1,7 +1,7 @@
 #!/bin/bash
 
-source lib/pyenv.sh
-
+# source lib/pyenv.sh
+source "$PROJECT_ROOT/lib/pyenv.sh"
 export GITHUB_REPO
 
 
