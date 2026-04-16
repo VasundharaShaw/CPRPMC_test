@@ -1,0 +1,39 @@
+# Sample repositories for testing the pipeline (Mode 1 — custom GitHub repo)
+#
+# How to use:
+#   Run: cd scripts && bash main.sh
+#   Choose option 1 (custom GitHub repo)
+#   Copy a URL and its notebook/requirements paths from below
+#
+# Format of each entry:
+#   GitHub repo URL:      https://github.com/<owner>/<repo>
+#   Notebook paths:       semicolon-separated paths to .ipynb files within the repo
+#   Requirements paths:   semicolon-separated paths to requirements.txt (leave blank if none)
+#   Setup paths:          semicolon-separated paths to setup.py (leave blank if none)
+#
+# ─────────────────────────────────────────────────────────────────────────────
+# SIMPLE — 1 notebook, 1 requirements.txt
+# ─────────────────────────────────────────────────────────────────────────────
+
+URL:           https://github.com/ncbi/elastic-blast-demos
+Notebooks:     elastic-blast-rdrp.ipynb
+Requirements:  requirements.txt
+Setup:         (leave blank)
+
+# ─────────────────────────────────────────────────────────────────────────────
+# MEDIUM — 1 notebook, requirements.txt in a subdirectory
+# ─────────────────────────────────────────────────────────────────────────────
+
+URL:           https://github.com/drorlab/pensa
+Notebooks:     tutorial/PENSA_Tutorial_GPCRmd_MOR.ipynb
+Requirements:  docs/requirements.txt
+Setup:         (leave blank)
+
+# ─────────────────────────────────────────────────────────────────────────────
+# MULTI-NOTEBOOK — several notebooks, no requirements.txt
+# ─────────────────────────────────────────────────────────────────────────────
+
+URL:           https://github.com/ICAN-aneurysms/RIA-predict
+Notebooks:     notebooks/1-Table-Baseline-Characteristics.ipynb;notebooks/5-Models-comparison.ipynb;notebooks/3-Logistic-Regression-Model.ipynb;notebooks/0-Clinical-data-simulator.ipynb;notebooks/2-Factor-Analysis-for-Mixed-Data.ipynb;notebooks/4-Random-Forest-Model.ipynb
+Requirements:  (leave blank)
+Setup:         (leave blank)
