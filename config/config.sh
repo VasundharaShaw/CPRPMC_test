@@ -7,7 +7,7 @@ PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 DATA_INPUT_DIR="$PROJECT_ROOT/data/input"
 DATA_OUTPUT_DIR="$PROJECT_ROOT/data/output"
-REPOS_DIR="$DATA_OUTPUT_DIR/repositories"
+REPOS_DIR="$DATA_OUTPUT_DIR/cloned_repos"
 COMP_DIR="$DATA_OUTPUT_DIR/comparisons"
 LOG_DIR="$DATA_OUTPUT_DIR/logs"
 DB_DIR="$DATA_OUTPUT_DIR/db"
