@@ -79,17 +79,19 @@ process_repo() {
         finalize_repository_run "$RUN_ID" "NO_PYTHON_NOTEBOOKS" "No Python notebooks found" "$(elapsed_sec "$REPO_START_TIME")"
         return 0
     fi
-
-    if [ -d "$REPO_NAME" ]; then
-        cd "$REPO_NAME" && git pull && cd ..
+    
+    if [ -d "$REPOS_DIR/$REPO_NAME" ]; then
+        cd "$REPOS_DIR/$REPO_NAME" && git pull && cd -
     else
-        git clone --depth 1 "$GITHUB_REPO" >> "$LOG_FILE" 2>&1
+        git clone --depth 1 "$GITHUB_REPO" "$REPOS_DIR/$REPO_NAME" >> "$LOG_FILE" 2>&1
     fi
 
-    if [ ! -d "$REPO_NAME" ]; then
+    if [ ! -d "$REPOS_DIR/$REPO_NAME" ]; then
         finalize_repository_run "$RUN_ID" "REPO_DIR_MISSING" "Directory not found after clone" "$(elapsed_sec "$REPO_START_TIME")"
         return 0
     fi
+
+    
 
     process_requirements
 
