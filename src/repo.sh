@@ -91,6 +91,17 @@ process_repo() {
     # Batch mode: notebooks already in DB — this becomes a no-op.
     insert_notebooks_from_paths "$REPO_ID" "$NOTEBOOK_PATHS"
 
+    # Normalize NOTEBOOK_PATHS: strip GitHub blob URLs to relative paths
+    # so all downstream code (notebooks.sh etc.) gets plain relative paths
+    local normalized=""
+    IFS=';' read -ra _nb_array <<< "$NOTEBOOK_PATHS"
+    for _nb in "${_nb_array[@]}"; do
+        _nb=$(echo "$_nb" | xargs)
+        [[ "$_nb" == https://github.com/* ]] && _nb=$(echo "$_nb" | sed 's|https://github.com/[^/]*/[^/]*/blob/[^/]*/||')
+        [ -n "$normalized" ] && normalized="${normalized};${_nb}" || normalized="$_nb"
+    done
+    NOTEBOOK_PATHS="$normalized"
+
     if ! validate_repo "$GITHUB_REPO"; then
         finalize_repository_run "$RUN_ID" "INVALID_REPOSITORY_URL" "git ls-remote failed" "$(elapsed_sec "$REPO_START_TIME")"
         return 0
